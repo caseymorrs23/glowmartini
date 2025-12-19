@@ -415,3 +415,34 @@ nav a:hover{ color: var(--gold2); }
     letter-spacing: .12em;
   }
 }
+
+
+/* Menu */
+.menu-grid{
+  display:grid;
+  grid-template-columns: 1fr;
+  gap:16px;
+}
+.menu-item{
+  display:flex;
+  align-items:flex-start;
+  justify-content:space-between;
+  gap:14px;
+  padding:10px 0;
+  border-bottom:1px solid rgba(239,238,242,.10);
+}
+.menu-item:last-child{ border-bottom:none; }
+.menu-item .muted{ margin-top:4px; }
+.price{
+  min-width:56px;
+  text-align:right;
+  font-weight:700;
+  color: var(--gold);
+  letter-spacing:.2px;
+}
+@media (min-width: 960px){
+  .menu-grid{ grid-template-columns: 1.05fr .95fr 1.05fr; }
+}
+
+/* Wide card */
+.card--wide{grid-column:1 / -1}
