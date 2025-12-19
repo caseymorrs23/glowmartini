@@ -211,12 +211,14 @@ nav a:hover{ color: var(--gold2); }
   display:grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 16px;
+  position: relative;
+  z-index: 2;
 }
 .card{
   border-radius: var(--radius2);
   overflow:hidden;
   border: 1px solid rgba(201,162,74,.18);
-  background: rgba(0,0,0,.25);
+  background: rgba(8,8,12,.62);
   box-shadow: 0 14px 40px rgba(0,0,0,.45);
 }
 .card img{
@@ -225,22 +227,32 @@ nav a:hover{ color: var(--gold2); }
   filter: saturate(1.05) contrast(1.05);
 }
 .card .cap{
-  padding: 12px 12px 14px;
+  padding: 14px 14px 16px;
   display:flex;
   justify-content:space-between;
-  align-items:center;
+  align-items:flex-end;
   gap: 12px;
+  background: rgba(8,8,12,.78);
+  border-top: 1px solid rgba(239,238,242,.10);
 }
 .card .cap span{
   font-weight:600;
-  color: rgba(239,238,242,.86);
+  color: rgba(239,238,242,.90);
+  flex: 1 1 auto;
+  min-width: 0;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
 .card .cap em{
   font-style:normal;
-  color: rgba(227,201,122,.90);
-  letter-spacing:.12em;
+  color: rgba(227,201,122,.92);
+  letter-spacing:.14em;
   text-transform:uppercase;
   font-size:.78rem;
+  white-space: nowrap;
+  flex: 0 0 auto;
 }
 
 /* Sections */
@@ -391,4 +403,15 @@ nav a:hover{ color: var(--gold2); }
   .nav-cta{ display:none; }
   header.open .nav-cta{ display:flex; position:absolute; top: 250px; left: 16px; right:16px; justify-content:stretch; }
   header.open .nav-cta .btn{ width:100%; }
+}
+
+
+@media (max-width: 560px){
+  .cap{
+    padding: 12px 12px 14px;
+  }
+  .cap em{
+    font-size: .74rem;
+    letter-spacing: .12em;
+  }
 }
