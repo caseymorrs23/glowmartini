@@ -21,7 +21,7 @@
     }
 
     /* Normalize highlight + gallery images to the same aspect ratio */
-    .card{ overflow:hidden; }
+    .card{ overflow:hidden; position:relative; }
     .card img{
       width:100% !important;
       aspect-ratio: 16 / 10;
@@ -31,11 +31,19 @@
       background: rgba(0,0,0,.25);
     }
 
-    /* Caption: prevent awkward word breaking like "Bey / mar" */
-    .cap{ display:flex; align-items:baseline; justify-content:space-between; gap:12px; }
+    /* Caption: move labels to the top of images (prevents cropping on smaller screens) */
+    .cap{ 
+      position:absolute; 
+      top:10px; left:10px; right:10px;
+      display:flex; align-items:center; justify-content:space-between; gap:12px;
+      padding:8px 10px;
+      border-radius:12px;
+      background: linear-gradient(180deg, rgba(0,0,0,.55), rgba(0,0,0,.18));
+      border: 1px solid rgba(239,238,242,.14);
+      backdrop-filter: blur(6px);
+    }
     .cap span{ white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
-    .cap em{ white-space:nowrap; }
-
+    .cap em{ white-space:nowrap; letter-spacing:.12em; text-transform:uppercase; font-size:11px; opacity:.95; }
     /* If the background is still too tall on very large screens, cap hero "breathing room" */
     @media (min-width: 1200px){
       .hero-inner{ max-width: 1100px; }
@@ -334,17 +342,10 @@
           <div class="kicker">Specials</div>
           <h2>Weekday specials &amp; happy hour</h2>
         </div>
-        <p>Keep this simple and evergreen—no event maintenance required. For one-off nights (karaoke, game nights, seasonal menus), point guests to Instagram.</p>
       </div>
 
       <div class="split">
         <div class="panel">
-          <h3>Happy Hour</h3>
-          <ul>
-            <li>Monday–Friday: 3pm–6pm</li>
-            <li>Sunday: All Day</li>
-          </ul>
-          <div class="hr"></div>
           <h3>Weekday specials</h3>
           <div class="muted small" style="margin:-6px 0 10px;">Popular menu picks by day—easy to remember, easy to order.</div>
 
@@ -353,13 +354,18 @@
           <div class="menu-item"><div><strong>Wednesday</strong><div class="muted">Brisket French Dip — hearty, savory, and a crowd favorite.</div></div><div class="price">&nbsp;</div></div>
           <div class="menu-item"><div><strong>Thursday</strong><div class="muted">Street Tacos — great with cocktails and easy to share.</div></div><div class="price">&nbsp;</div></div>
           <div class="menu-item"><div><strong>Friday</strong><div class="muted">Flatbreads — perfect for kicking off the weekend.</div></div><div class="price">&nbsp;</div></div>
-          <div class="menu-item"><div><strong>Saturday</strong><div class="muted">Charcuterie — ideal for groups and long nights.</div></div><div class="price">&nbsp;</div></div>
-          <div class="menu-item"><div><strong>Sunday</strong><div class="muted">Dessert & cocktails — wind down with something sweet.</div></div><div class="price">&nbsp;</div></div>
 
           <div class="muted small" style="margin-top:12px;">For the latest announcements and one‑off nights, follow <a href="https://www.instagram.com/glowmartinilounge/" target="_blank" rel="noopener">@glowmartinilounge</a>.</div>
         </div>
 
         <div class="panel">
+          <h3>Happy Hour</h3>
+          <ul>
+            <li>Monday–Friday: 3pm–6pm</li>
+            <li>Sunday: All Day</li>
+          </ul>
+          <div class="hr"></div>
+
           <h3>Parties &amp; group nights</h3>
           <p class="small">Planning a birthday, group night out, or small celebration? Send a note with your date, time, headcount, and any requests—we’ll follow up.</p>
           <div class="pills" aria-label="Party info">
