@@ -441,7 +441,7 @@ nav a:hover{ color: var(--gold2); }
   letter-spacing:.2px;
 }
 @media (min-width: 960px){
-  .menu-grid{ grid-template-columns: 1.05fr .95fr 1.05fr; }
+  .menu-grid{ grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
 
 /* Wide card */
@@ -476,3 +476,122 @@ nav a:hover{ color: var(--gold2); }
 /* Desserts horizontal row */
 .desserts-grid{display:grid;gap:12px;grid-template-columns:repeat(3,minmax(0,1fr))}
 @media (max-width: 980px){.desserts-grid{grid-template-columns:1fr}}
+
+
+/* Menu polish */
+.menu-favorites .favorites-grid{
+  display:grid;
+  gap:12px;
+  grid-template-columns:1fr;
+  margin-top:10px;
+}
+.menu-favorites .fav{
+  display:grid;
+  grid-template-columns: 1fr auto;
+  gap:4px 12px;
+  padding:12px 14px;
+  border-radius:16px;
+  border:1px solid rgba(239,238,242,.12);
+  background: rgba(0,0,0,.18);
+}
+.menu-favorites .fav strong{ font-weight:700; }
+.menu-favorites .fav .muted{ grid-column: 1 / -1; font-size:.92rem; opacity:.82; }
+.menu-favorites .fav .price{ font-weight:700; opacity:.9; align-self:start; }
+
+@media (min-width: 960px){
+  .menu-favorites .favorites-grid{ grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+
+
+/* --- Menu polish (scanability + alignment) --- */
+.menu-grid{
+  display:grid;
+  grid-template-columns: 1fr;
+  gap:16px;
+}
+@media (min-width: 900px){
+  .menu-grid{
+    grid-template-columns: 1fr 1fr; /* 2-column desktop */
+    align-items:start;
+  }
+}
+.panel h3{
+  letter-spacing:.02em;
+}
+
+/* Menu item alignment: name/desc left, price right, consistent spacing */
+.menu-item{
+  display:grid;
+  grid-template-columns: 1fr auto;
+  gap:14px;
+  padding:12px 0;
+}
+.menu-item .muted{
+  margin-top:6px;
+  line-height:1.35;
+}
+.price{
+  text-align:right;
+  min-width:48px;
+  font-weight:700;
+  opacity:.92;
+}
+
+/* Reduce density: soften long descriptions */
+.menu-item .muted,
+.menu-item .muted span{
+  opacity:.78;
+}
+
+/* Desserts row: horizontal cards on desktop, stacked on mobile */
+.desserts-grid{
+  display:grid;
+  grid-template-columns: 1fr;
+  gap:10px 18px;
+}
+@media (min-width: 700px){
+  .desserts-grid{
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+  .desserts-grid .menu-item{
+    grid-template-columns: 1fr auto;
+    border-bottom: 0 !important;
+    padding: 8px 0 !important;
+  }
+}
+
+/* Optional: collapsible categories on small screens for very long menus */
+@media (max-width: 640px){
+  .panel[data-collapsible] > .panel-body{ display:none; }
+  .panel[data-collapsible].open > .panel-body{ display:block; }
+  .panel[data-collapsible] > h3{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    cursor:pointer;
+    margin-bottom:6px;
+  }
+  .panel[data-collapsible] > h3::after{
+    content:"+";
+    opacity:.75;
+    font-weight:700;
+  }
+  .panel[data-collapsible].open > h3::after{ content:"–"; }
+}
+
+/* --- Menu split sections (each category its own panel) --- */
+.menu-grid{ display:grid; grid-template-columns: 1fr; gap:16px; }
+.panel[data-collapsible] > .panel-body{ display:block; }
+@media (max-width: 640px){
+  .panel[data-collapsible] > .panel-body{ display:none; }
+  .panel[data-collapsible].open > .panel-body{ display:block; }
+  .panel[data-collapsible] > h3{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    cursor:pointer;
+  }
+  .panel[data-collapsible] > h3::after{ content:"+"; opacity:.75; font-weight:700; }
+  .panel[data-collapsible].open > h3::after{ content:"–"; }
+}

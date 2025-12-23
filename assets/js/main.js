@@ -92,3 +92,16 @@
   setInterval(update, 5 * 60 * 1000);
 })();
 
+
+
+
+// Mobile menu section accordions (optional)
+document.addEventListener('click', (e) => {
+  const h3 = e.target.closest('.panel[data-collapsible] > h3');
+  if (!h3) return;
+  const panel = h3.parentElement;
+  // only treat as accordion on small screens
+  if (window.matchMedia('(max-width: 640px)').matches) {
+    panel.classList.toggle('open');
+  }
+});
