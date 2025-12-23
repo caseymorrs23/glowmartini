@@ -1,18 +1,90 @@
 <!doctype html>
 <html lang="en">
 <head>
-<meta charset="utf-8"/>
-<meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Thank You | Glow Martini Lounge</title>
-<link rel="stylesheet" href="assets/css/styles.css"/>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Thank You | Glow Martini Lounge</title>
+  <meta name="description" content="Thanks for reaching out to Glow Martini Lounge. We’ll get back to you shortly." />
+  <meta name="theme-color" content="#0b0b10" />
+  <link rel="icon" href="assets/img/favicon.png" type="image/png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/styles.css" />
 </head>
 <body>
-<section class="section">
+<header>
   <div class="container">
-    <h1>Thanks for reaching out</h1>
-    <p>We’ve received your message and will follow up shortly.</p>
-    <a class="btn primary" href="/">Back to Glow</a>
+    <div class="nav">
+      <a class="brand" href="index.html#top" aria-label="Glow Martini Lounge home">
+        <img src="assets/img/logo.jpg" alt="Glow Martini Lounge logo" />
+        <div class="name">
+          <strong>Glow</strong>
+          <span>Martini Lounge</span>
+        </div>
+      </a>
+
+      <nav aria-label="Primary">
+        <ul>
+          <li><a href="index.html#menu">Menu</a></li>
+          <li><a href="index.html#order">To Go</a></li>
+          <li><a href="index.html#events">Events</a></li>
+          <li><a href="index.html#gallery">Gallery</a></li>
+          <li><a href="index.html#contact">Contact</a></li>
+        </ul>
+      </nav>
+
+      <div class="nav-cta">
+        <a class="btn small primary" href="tel:+12539877020">Order Online</a>
+        <a class="btn small ghost" href="index.html#menu">View Menu</a>
+      </div>
+
+      <button class="hamburger" data-nav-toggle aria-label="Open menu">
+        ☰
+      </button>
+    </div>
   </div>
-</section>
+</header>
+
+<main id="top">
+  <section class="section" style="padding-top:54px;">
+    <div class="container">
+      <div class="panel" style="max-width:760px; margin:0 auto;">
+        <div class="kicker">Message Sent</div>
+        <h1 style="margin:10px 0 10px; font-family: var(--serif);">Thanks for reaching out.</h1>
+        <p class="small" style="margin:0 0 14px;">We received your message and will get back to you shortly. If you need us faster, call <a href="tel:+12539877020">(253) 987-7020</a>.</p>
+        <div class="hero-actions" style="margin-top:0;">
+          <a class="btn primary" href="index.html#contact">Back to Contact</a>
+          <a class="btn" href="index.html#menu">View Menu</a>
+          <a class="btn ghost" href="index.html#top">Home</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <div class="kicker">Glow Martini Lounge</div>
+        <div class="meta">20631 SR 410 E, Bonney Lake, WA • <a href="tel:+12539877020">(253) 987-7020</a></div>
+        <div class="meta">© <span id="year"></span> Glow Martini Lounge. All rights reserved.</div>
+      </div>
+      <div>
+        <div class="meta">
+          <a href="https://www.instagram.com/glowmartinilounge/" target="_blank" rel="noopener">Instagram</a> •
+          <a href="https://www.facebook.com/glowmartinilounge/" target="_blank" rel="noopener">Facebook</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/js/main.js"></script>
+<script>
+  const y = document.getElementById('year');
+  if (y) y.textContent = new Date().getFullYear();
+</script>
 </body>
 </html>
