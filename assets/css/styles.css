@@ -595,3 +595,82 @@ nav a:hover{ color: var(--gold2); }
   .panel[data-collapsible] > h3::after{ content:"+"; opacity:.75; font-weight:700; }
   .panel[data-collapsible].open > h3::after{ content:"–"; }
 }
+
+
+
+/* --- Hero sizing + card caption polish --- */
+.hero{
+  padding-top: 88px; /* accounts for sticky header */
+}
+.hero .container{
+  padding-top: 22px;
+}
+.hero-inner{
+  min-height: 0;
+}
+@media (min-width: 900px){
+  .hero-inner{
+    padding-bottom: 24px;
+  }
+  .hero{
+    padding-bottom: 18px;
+  }
+}
+/* Reduce perceived hero height by tightening spacing */
+.hero h1{ margin-bottom: 10px; }
+.hero p{ margin-top: 0; margin-bottom: 14px; }
+
+/* Prevent highlight card captions from awkward wrapping/cropping */
+.cards{ gap: 14px; }
+.card .cap{
+  display:flex;
+  align-items:flex-end;
+  justify-content:space-between;
+  gap:10px;
+}
+.card .cap span{
+  max-width: 70%;
+  line-height: 1.15;
+}
+.card .cap em{
+  white-space: nowrap;
+  line-height: 1.1;
+  opacity:.85;
+}
+
+/* Menu section headings with price ranges */
+.panel h3{
+  display:flex;
+  align-items:baseline;
+  justify-content:space-between;
+  gap:12px;
+}
+.menu-range{
+  font-size: .9rem;
+  font-weight: 700;
+  padding: 6px 10px;
+  border-radius: 999px;
+  border: 1px solid rgba(239,238,242,.18);
+  background: rgba(0,0,0,.18);
+  color: rgba(239,238,242,.92);
+}
+
+/* Accordion plus sign still shows on mobile, but doesn't collide with range */
+@media (max-width: 640px){
+  .panel[data-collapsible] > h3{
+    padding-right: 26px; /* room for +/– */
+  }
+  .panel[data-collapsible] > h3::after{
+    position:absolute;
+    right: 0;
+  }
+  .panel[data-collapsible] > h3{ position:relative; }
+}
+
+
+/* Avoid breaking words in highlight captions */
+.card .cap span{
+  word-break: normal;
+  overflow-wrap: normal;
+  hyphens: none;
+}
