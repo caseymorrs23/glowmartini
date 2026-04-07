@@ -155,7 +155,7 @@ nav a:hover{ color: var(--gold2); }
     radial-gradient(900px 500px at 80% 10%, rgba(201,162,74,.22), transparent 55%),
     /* Slightly stronger overlay for better text contrast + velvet-lit mood */
     linear-gradient(180deg, rgba(0,0,0,.45), rgba(0,0,0,.65)),
-    url("../img/hero.jpg");
+    url("../img/hero.webp");
   background-size: cover;
   background-position: center;
 }
