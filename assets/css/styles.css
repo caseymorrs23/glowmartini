@@ -537,3 +537,18 @@ min-width: 0;
 .menu-range{display:none !important;}
 #menu h3{color: var(--gold, #d6b45c);}
 #menu h3 span{color: var(--gold, #d6b45c);}
+
+
+/* v6: tighten House Favorite image so it does not render too tall */
+.feature-grid > div:last-child img{
+  width:100%;
+  height:420px;
+  object-fit:cover;
+  object-position:center center;
+  display:block;
+}
+@media (max-width: 980px){
+  .feature-grid > div:last-child img{
+    height:360px;
+  }
+}
